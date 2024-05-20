@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-
 function AddPageForm({ setIsAddingArticle }) {
 
     const [title, setTitle] = useState("");
@@ -29,10 +28,11 @@ function AddPageForm({ setIsAddingArticle }) {
                     articleData
                 )
             });
-            // const data = await response.json();
+            const data = await response.json();
         } catch (error) {
             console.error(error);
         }
+
         setIsAddingArticle(false);
     }
 
