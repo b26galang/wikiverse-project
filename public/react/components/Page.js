@@ -51,5 +51,4 @@ export const Page = ({ page, isSinglePage, setIsSinglePage }) => {
   </>
 }
 
-
 export default Page;

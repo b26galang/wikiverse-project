@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Page } from './Page'
 
-export const PagesList = ({ pages }) => {
+export const PagesList = ({ pages, setIsAddingArticle }) => {
 
-	// hide other pages if page is clicked on
 	const [isSinglePage, setIsSinglePage] = useState(false);
 
 	// grab pageId from page user clicks on to use for filtering
@@ -12,12 +11,7 @@ export const PagesList = ({ pages }) => {
 	const handleArticleClick = (id) => {
 		setIsSinglePage(true);
 		setPageId(id);
-		console.log("Inside handleArticle Click - id: ", id);
 	}
-
-	useEffect(() => {
-		console.log("Inside PageList: isSinglePage: ", isSinglePage);
-	}, [isSinglePage])
 
 	return <>
 		{isSinglePage ? (
@@ -34,8 +28,9 @@ export const PagesList = ({ pages }) => {
 					<Page page={page} key={idx} />
 				</span>
 			))
-			)} </div>
-
+			)}
+			<button onClick={() => setIsAddingArticle(true)}>Create Page</button>
+		</div>
 		}
 	</>
 }
